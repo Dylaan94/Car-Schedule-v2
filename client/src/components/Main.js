@@ -41,7 +41,7 @@ class Main extends Component {
         <Header></Header>
         <Styles.MainGridStyles>
           <Grid
-            options={{
+            gridOptions={{
               column: 8,
               float: true,
               cellHeight: "50px", // set for now
@@ -51,6 +51,16 @@ class Main extends Component {
               class: "mainGrid",
             }}
             constWidgets={this.state.constWidgetMain}
+            carGridOptions={{
+              column: 1,
+              float: false,
+              cellHeight: "60px", // set for now
+              minRow: 3,
+              maxRow: 3,
+              acceptWidgets: false,
+              class: "carGrid"
+            }}
+            constWidgetCar= {this.state.constWidgetCar}
           ></Grid>
         </Styles.MainGridStyles>
       </div>
