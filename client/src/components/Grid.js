@@ -20,6 +20,8 @@ class Grid extends Component {
     };
     this.initGrid = this.initGrid.bind(this);
     this.initCarGrid = this.initCarGrid.bind(this);
+    this.handleGrid = this.handleGrid.bind(this);
+    this.handleCarGrid = this.handleCarGrid.bind(this);
   }
 
   initGrid = () => {
@@ -47,6 +49,9 @@ class Grid extends Component {
       this.grid.addWidget(node);
     }
 
+    this.handleGrid(this.grid)
+
+
   };
 
   initCarGrid = () => {
@@ -73,27 +78,46 @@ class Grid extends Component {
       node.noMove = false;
       this.grid.addWidget(node);
     }
+
+    this.handleCarGrid(this.grid)
+  };
+
+
+  handleGrid = (grid) => {
+
+
+
+
+  };
+
+  handleCarGrid = (grid) => {
+    this.grid.on("removed", (e, item) => {
+      this.grid.addWidget(item[0]) // adds removed node back to the car grid
+    })
+
   };
 
   componentDidMount() {
     this.initGrid();
     this.initCarGrid();
+
   }
+
+  componentDidUpdate() {
+
+  }
+
+
 
   render() {
     return (
-
-        <div className="gridContainer">
-          <section
-            id="gridWrapper"
-            className="grid-stack grid-stack-N"
+      <div className="gridContainer">
+        <section id="gridWrapper" className="grid-stack grid-stack-N"></section>
+        <section
+          id="carGridWrapper"
+          className="grid-stack grid-stack-N"
         ></section>
-          <section
-            id="carGridWrapper"
-            className="grid-stack grid-stack-N"
-          ></section>
-        </div>
-
+      </div>
     );
   }
 }
