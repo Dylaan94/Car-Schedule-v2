@@ -38,10 +38,10 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
-        <Header></Header>
+      <Styles.DivWrapper>
+        <Sidebar></Sidebar>
         <Styles.MainStyles>
-          <Sidebar></Sidebar>
+          <Header></Header>
           <Grid
             gridOptions={{
               column: 8,
@@ -65,7 +65,7 @@ class Main extends Component {
             constWidgetCar={this.state.constWidgetCar}
           ></Grid>
         </Styles.MainStyles>
-      </div>
+      </Styles.DivWrapper>
     );
   }
 }
