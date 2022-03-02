@@ -5,7 +5,8 @@ import Header from "./Header";
 import Grid from "./Grid";
 
 // Styles imports
-import Styles from "./styles/Styles"
+import Styles from "./styles/Styles";
+import Sidebar from "./Sidebar";
 
 class Main extends Component {
   constructor(props) {
@@ -39,7 +40,8 @@ class Main extends Component {
     return (
       <div>
         <Header></Header>
-        <Styles.MainGridStyles>
+        <Styles.MainStyles>
+          <Sidebar></Sidebar>
           <Grid
             gridOptions={{
               column: 8,
@@ -58,11 +60,11 @@ class Main extends Component {
               minRow: 3,
               maxRow: 3,
               acceptWidgets: false,
-              class: "carGrid"
+              class: "carGrid",
             }}
-            constWidgetCar= {this.state.constWidgetCar}
+            constWidgetCar={this.state.constWidgetCar}
           ></Grid>
-        </Styles.MainGridStyles>
+        </Styles.MainStyles>
       </div>
     );
   }

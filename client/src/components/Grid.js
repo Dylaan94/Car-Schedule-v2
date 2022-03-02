@@ -49,38 +49,35 @@ class Grid extends Component {
       this.grid.addWidget(node);
     }
 
-    this.handleGrid(this.grid)
-
-
+    this.handleGrid(this.grid);
   };
 
   initCarGrid = (newNode) => {
-          // initialised grid based off data in state
-      const { constWidgetCar, carOptions } = this.state;
-      const node = {};
+    // initialised grid based off data in state
+    const { constWidgetCar, carOptions } = this.state;
+    let node = {};
 
-      // adds grid to the element with the id gridWrapper
-      this.grid = GridStack.addGrid(
-        document.getElementById("carGridWrapper"),
-        carOptions
-      );
- 
+    // adds grid to the element with the id gridWrapper
+    this.grid = GridStack.addGrid(
+      document.getElementById("carGridWrapper"),
+      carOptions
+    );
+
     if (newNode) {
-      const cleanNewNode = {};
-      cleanNewNode.content = newNode.content;
-      cleanNewNode.x = newNode.x;
-      cleanNewNode.y = newNode.y;
-      cleanNewNode.w = newNode.w;
-      cleanNewNode.h = newNode.h;
-      // options
-      cleanNewNode.noResize = true;
-      cleanNewNode.locked = true;
-      cleanNewNode.noMove = false;
-      console.log(cleanNewNode)
-      this.grid.addWidget(cleanNewNode);
+      node = {
+        // initialise node based on newNode properties
+        content: newNode.content,
+        x: newNode.x,
+        y: newNode.y,
+        w: newNode.w,
+        h: newNode.w,
+        noResize: true,
+        locked: true,
+        noMove: false,
+      };
+      this.grid.addWidget(node);
       return;
     } else {
-
       // sets placement based on data in state
       for (let i = 0; i < constWidgetCar.length; i++) {
         node.content = String(this.state.constWidgetCar[i].name);
@@ -96,47 +93,38 @@ class Grid extends Component {
       }
     }
 
-    this.handleCarGrid(this.grid)
+    this.handleCarGrid(this.grid);
   };
 
-
-  handleGrid = (grid) => {
-
-
-
-
-  };
+  handleGrid = (grid) => {};
 
   handleCarGrid = (grid) => {
     this.grid.on("removed", (e, item) => {
-     //this.grid.addWidget(item[0]) // adds removed node back to the car grid
-      console.log(item)
       this.initCarGrid(item[0]);
-    })
-
+    });
   };
 
   componentDidMount() {
     this.initGrid();
     this.initCarGrid();
-
   }
 
-  componentDidUpdate() {
-
-  }
-
-
+  componentDidUpdate() {}
 
   render() {
     return (
-      <div className="gridContainer">
-        <section id="gridWrapper" className="grid-stack grid-stack-N"></section>
-        <section
-          id="carGridWrapper"
-          className="grid-stack grid-stack-N"
-        ></section>
-      </div>
+      <Styles.MainGridStyles>
+        <div className="gridContainer">
+          <section
+            id="gridWrapper"
+            className="grid-stack grid-stack-N"
+          ></section>
+          <section
+            id="carGridWrapper"
+            className="grid-stack grid-stack-N"
+          ></section>
+        </div>
+      </Styles.MainGridStyles>
     );
   }
 }
