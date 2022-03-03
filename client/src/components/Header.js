@@ -10,7 +10,7 @@ class Header extends Component {
     return (
       <div>
         <Styles.HeaderStyles>
-          <h1>Onomichi BOE Car Schedule</h1>
+          <h1>Onomichi City BOE Car Schedule</h1>
         </Styles.HeaderStyles>
       </div>
     );

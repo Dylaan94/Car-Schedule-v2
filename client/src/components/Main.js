@@ -56,7 +56,7 @@ class Main extends Component {
             carGridOptions={{
               column: 1,
               float: false,
-              cellHeight: "60px", // set for now
+              cellHeight: "50px", // set for now
               minRow: 3,
               maxRow: 3,
               acceptWidgets: false,

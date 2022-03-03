@@ -24,16 +24,6 @@ time, mark, audio, video {
 	width: 100%;
 }
 
-.grid-stack-item {
-    background: #caf0f8;
-	border-radius: 5px;
-	    width: 20%;
-}
 
-.grid-stack-item-content {
-  display: flex;
-  justify-content: center;
-  background: #caf0f8;
-  align-items: center;
-  border-radius: 5px;
-}
+
+
