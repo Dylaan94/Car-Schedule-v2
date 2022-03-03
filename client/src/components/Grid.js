@@ -37,7 +37,8 @@ class Grid extends Component {
 
     // sets placement based on data in state
     for (let i = 0; i < constWidgets.length; i++) {
-      node.id = node.content = String(this.state.constWidgets[i].name);
+      node.id = "constWidget";
+      node.content = String(this.state.constWidgets[i].name);
       node.x = constWidgets[i].x;
       node.y = constWidgets[i].y;
       node.w = constWidgets[i].w;

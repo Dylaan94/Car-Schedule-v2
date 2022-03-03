@@ -60,36 +60,52 @@ const MainGridStyles = styled.div`
     #carGridWrapper {
       width: 10vw;
       height: 100%;
-
-      .grid-stack-item {
-      }
     }
 
     [gs-id="BOE"],
     [gs-id="City"],
     [gs-id="Special"] {
-      background: #959aab;
-      color: white;
-      border-radius: 5px;
+      color: black;
       font-weight: 900;
       font-size: 1em;
       border: none;
+      background: white;
+
       .grid-stack-item-content {
-        background: inherit;
+        inset: 2px;
+        border-radius: 5px;
       }
     }
-  }
 
-  .grid-stack-item {
-    background: #f9fafd;
-    border: 1.5px solid rgb(241, 242, 249);
-  }
+    [gs-id="BOE"] {
+      .grid-stack-item-content {
+        background: #f2f0fe;
+        border: 2px solid #5d48f5;
+      }
+    }
+    [gs-id="City"] {
+      .grid-stack-item-content {
+        background: #e8f3fe;
+        border: 2px solid #337ef2;
+      }
+    }
+    [gs-id="Special"] {
+      .grid-stack-item-content {
+        background: #fbebf5;
+        border: 2px solid #e93e99;
+      }
+    }
 
-  .grid-stack-item-content {
-    display: flex;
-    justify-content: center;
-    background: #f9fafd;
-    align-items: center;
+    [gs-id="constWidget"] {
+      height: 100%;
+      background: #f9fafd;
+    }
+
+    .grid-stack-item-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 `;
 
