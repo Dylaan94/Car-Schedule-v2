@@ -7,8 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 const Date = (props) => {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
-
-
   return (
     <div>
       <DatePicker
