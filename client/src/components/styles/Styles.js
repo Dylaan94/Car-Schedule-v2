@@ -30,6 +30,62 @@ const HeaderStyles = styled.div`
   }
 `;
 
+const DateStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .dateContainer {
+    display: flex;
+    flex-direction: row;
+
+    p {
+      font-size: 1.3em;
+      font-weight: 600;
+      margin: 0.5em 0em 0.5em 0.5em;
+    }
+
+    #startDate {
+      margin-right: 1em;
+    }
+
+    #endDate {
+      margin-left: 1em;
+    }
+
+
+  }
+
+  .datePicker {
+    background: #8d97b8;
+    height: 2em;
+    width: 12em;
+    text-align: center;
+    font-weight: 900;
+    padding: 0.3em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+
+    ::placeholder // Chrome, Firefox, Opera, Safari
+    {
+      color: white;
+      opacity: 1; // firefox
+    }
+
+    :-ms-input-placeholder {
+      // internet explorer
+      color: white;
+    }
+
+    ::-ms-input-placeholder {
+      // edge
+      color: white;
+    }
+  }
+`;
+
 const MainGridStyles = styled.div`
   display: flex;
   width: 100%;
@@ -122,6 +178,7 @@ const Styles = {
   DivWrapper: DivWrapper,
   MainStyles: MainStyles,
   HeaderStyles: HeaderStyles,
+  DateStyles: DateStyles,
   MainGridStyles: MainGridStyles,
   SidebarStyles: SidebarStyles,
 };
