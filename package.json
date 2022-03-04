@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "gridstack": "^5.0.0",
+    "react-datepicker": "^4.7.0",
     "styled-components": "^5.3.3"
   }
 }
