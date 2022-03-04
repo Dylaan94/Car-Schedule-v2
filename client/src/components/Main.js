@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // Component imports
 import Header from "./Header";
 import Grid from "./Grid";
-import Date from "./Date"
+import Date from "./Date";
 // Styles imports
 import Styles from "./styles/Styles";
 import Sidebar from "./Sidebar";
@@ -36,13 +36,14 @@ class Main extends Component {
     };
   }
 
+
   render() {
     return (
       <Styles.DivWrapper>
         <Sidebar></Sidebar>
         <Styles.MainStyles>
           <Header></Header>
-<Date></Date>
+          <Date></Date>
           <Grid
             gridOptions={{
               column: 8,

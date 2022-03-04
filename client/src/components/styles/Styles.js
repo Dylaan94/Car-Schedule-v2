@@ -41,8 +41,8 @@ const DateStyles = styled.div`
     flex-direction: row;
 
     p {
-      font-size: 1.3em;
-      font-weight: 600;
+      font-size: 1.2em;
+      font-weight: 500;
       margin: 0.5em 0em 0.5em 0.5em;
     }
 
@@ -59,30 +59,15 @@ const DateStyles = styled.div`
 
   .datePicker {
     background: #8d97b8;
+    color: white;
     height: 2em;
-    width: 12em;
+    width: 10em;
     text-align: center;
-    font-weight: 900;
+    font-weight: 600;
     padding: 0.3em;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-
-    ::placeholder // Chrome, Firefox, Opera, Safari
-    {
-      color: white;
-      opacity: 1; // firefox
-    }
-
-    :-ms-input-placeholder {
-      // internet explorer
-      color: white;
-    }
-
-    ::-ms-input-placeholder {
-      // edge
-      color: white;
-    }
   }
 `;
 

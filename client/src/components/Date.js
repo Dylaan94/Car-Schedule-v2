@@ -22,9 +22,6 @@ const Date = (props) => {
     document.getElementById("endDate").innerHTML = endDateStr;
   };
 
-  const updatePlaceholder = () => {
-
-  };
 
   return (
     <Styles.DateStyles>
@@ -51,7 +48,7 @@ const Date = (props) => {
           updateEndDate(endDate);
         }}
         withPortal
-        value = "Select date range"
+        value="Select date range"
       />
     </Styles.DateStyles>
   );

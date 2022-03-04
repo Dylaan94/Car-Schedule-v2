@@ -59,7 +59,7 @@ class Grid extends Component {
     let node = {};
 
     // adds grid to the element with the id gridWrapper
-    this.grid = GridStack.addGrid(
+    this.carGrid = GridStack.addGrid(
       document.getElementById("carGridWrapper"),
       carOptions
     );
@@ -77,7 +77,7 @@ class Grid extends Component {
         locked: true,
         noMove: false,
       };
-      this.grid.addWidget(node);
+      this.carGrid.addWidget(node);
       return;
     } else {
       // sets placement based on data in state
@@ -91,17 +91,21 @@ class Grid extends Component {
         node.noResize = true;
         node.locked = true;
         node.noMove = false;
-        this.grid.addWidget(node);
+        this.carGrid.addWidget(node);
       }
     }
 
-    this.handleCarGrid(this.grid);
+    this.handleCarGrid(this.carGrid);
   };
 
-  handleGrid = (grid) => {};
+  handleGrid = (grid) => {
+    this.grid.on("dropped", (e) => {
+      console.log(this.grid.getGridItems());
+    });
+  };
 
   handleCarGrid = (grid) => {
-    this.grid.on("removed", (e, item) => {
+    this.carGrid.on("removed", (e, item) => {
       this.initCarGrid(item[0]);
     });
   };
