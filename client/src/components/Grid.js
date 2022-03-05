@@ -105,12 +105,6 @@ class Grid extends Component {
     this.grid.on("added removed dropped change dragstop", () => {
       this.updateGridState();
     });
-
-    this.grid.on("dropped", (e) => {
-      let gridItems = this.grid.getGridItems();
-      console.log(gridItems[gridItems.length - 1].gridstackNode); // gets newest gridstack node
-      let newItem = gridItems[gridItems.length - 1].gridstackNode;
-    });
   };
 
   handleCarGrid = () => {
@@ -121,7 +115,23 @@ class Grid extends Component {
 
   updateGridState = () => {
     const grid = this.grid.getGridItems();
-    console.log(grid);
+    let gridItemArray = [];
+
+    for (let i = 14; i < grid.length; i++) {
+      let gridItem = {
+        content: grid[i].gridstackNode.content,
+        x: grid[i].gridstackNode.x,
+        y: grid[i].gridstackNode.y,
+        w: grid[i].gridstackNode.w,
+        h: grid[i].gridstackNode.h,
+        noResize: true,
+        locked: true,
+        noMove: false,
+      };
+      gridItemArray.push(gridItem);
+    }
+
+    console.log(gridItemArray);
   };
 
   componentDidMount() {
