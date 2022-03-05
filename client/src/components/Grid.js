@@ -131,7 +131,16 @@ class Grid extends Component {
       gridItemArray.push(gridItem);
     }
 
-    console.log(gridItemArray);
+    this.setState(
+      {
+        addedWidgets: gridItemArray,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+
+    //  console.log(gridItemArray);
   };
 
   componentDidMount() {
