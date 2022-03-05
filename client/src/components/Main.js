@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Grid from "./Grid";
 import Date from "./Date";
+import SaveButton from "./SaveButton";
+
 // Styles imports
 import Styles from "./styles/Styles";
 import Sidebar from "./Sidebar";

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import SaveButton from "./SaveButton";
+
 //gridstack imports
 import { GridStack } from "gridstack";
 import "gridstack/dist/gridstack.css";
@@ -22,6 +24,7 @@ class Grid extends Component {
     this.initCarGrid = this.initCarGrid.bind(this);
     this.handleGrid = this.handleGrid.bind(this);
     this.handleCarGrid = this.handleCarGrid.bind(this);
+    this.updateGridState = this.updateGridState.bind(this);
   }
 
   initGrid = () => {
@@ -50,7 +53,7 @@ class Grid extends Component {
       this.grid.addWidget(node);
     }
 
-    this.handleGrid(this.grid);
+    this.handleGrid();
   };
 
   initCarGrid = (newNode) => {
@@ -95,19 +98,30 @@ class Grid extends Component {
       }
     }
 
-    this.handleCarGrid(this.carGrid);
+    this.handleCarGrid();
   };
 
-  handleGrid = (grid) => {
+  handleGrid = () => {
+    this.grid.on("added removed dropped change dragstop", () => {
+      this.updateGridState();
+    });
+
     this.grid.on("dropped", (e) => {
-      console.log(this.grid.getGridItems());
+      let gridItems = this.grid.getGridItems();
+      console.log(gridItems[gridItems.length - 1].gridstackNode); // gets newest gridstack node
+      let newItem = gridItems[gridItems.length - 1].gridstackNode;
     });
   };
 
-  handleCarGrid = (grid) => {
+  handleCarGrid = () => {
     this.carGrid.on("removed", (e, item) => {
       this.initCarGrid(item[0]);
     });
+  };
+
+  updateGridState = () => {
+    const grid = this.grid.getGridItems();
+    console.log(grid);
   };
 
   componentDidMount() {
@@ -115,22 +129,23 @@ class Grid extends Component {
     this.initCarGrid();
   }
 
-  componentDidUpdate() {}
-
   render() {
     return (
-      <Styles.MainGridStyles>
-        <div className="gridContainer">
-          <section
-            id="gridWrapper"
-            className="grid-stack grid-stack-N"
-          ></section>
-          <section
-            id="carGridWrapper"
-            className="grid-stack grid-stack-N"
-          ></section>
-        </div>
-      </Styles.MainGridStyles>
+      <div>
+        <Styles.MainGridStyles>
+          <div className="gridContainer">
+            <section
+              id="gridWrapper"
+              className="grid-stack grid-stack-N"
+            ></section>
+            <section
+              id="carGridWrapper"
+              className="grid-stack grid-stack-N"
+            ></section>
+          </div>
+        </Styles.MainGridStyles>
+        <SaveButton grid={this.grid}></SaveButton>
+      </div>
     );
   }
 }
