@@ -10,8 +10,7 @@ class SaveButton extends Component {
   }
 
   getGridItems = () => {
-    console.log(this.props.grid);
-    return this.props.grid;
+    return this.props.addedWidgets;
   };
 
   handleGridItems = () => {
@@ -19,12 +18,16 @@ class SaveButton extends Component {
     console.log(grid);
   };
 
-  saveScheduleLocally = () => {};
+  saveScheduleLocally = () => {
+    let widgets = this.getGridItems();
+    let widgets_serialised = JSON.stringify(widgets);
+    window.localStorage.setItem("savedSchedule", widgets_serialised);
+  };
 
   render() {
     return (
       <div>
-        <button className="saveButton" onClick={this.handleGridItems}>
+        <button className="saveButton" onClick={this.saveScheduleLocally}>
           Save Schedule
         </button>
       </div>

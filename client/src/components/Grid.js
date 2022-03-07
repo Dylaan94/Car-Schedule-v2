@@ -117,7 +117,7 @@ class Grid extends Component {
     const grid = this.grid.getGridItems();
     let gridItemArray = [];
 
-    for (let i = 14; i < grid.length; i++) {
+    for (let i = 0; i < grid.length; i++) {
       let gridItem = {
         content: grid[i].gridstackNode.content,
         x: grid[i].gridstackNode.x,
@@ -163,7 +163,7 @@ class Grid extends Component {
             ></section>
           </div>
         </Styles.MainGridStyles>
-        <SaveButton grid={this.grid}></SaveButton>
+        <SaveButton addedWidgets={this.state.addedWidgets}></SaveButton>
       </div>
     );
   }
