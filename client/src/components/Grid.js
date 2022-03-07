@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import SaveButton from "./SaveButton";
+import DeleteButton from "./DeleteButton";
 
 //gridstack imports
 import { GridStack } from "gridstack";
@@ -25,6 +26,7 @@ class Grid extends Component {
     this.handleGrid = this.handleGrid.bind(this);
     this.handleCarGrid = this.handleCarGrid.bind(this);
     this.updateGridState = this.updateGridState.bind(this);
+    this.clearGrid = this.clearGrid.bind(this);
   }
 
   initGrid = () => {
@@ -143,6 +145,11 @@ class Grid extends Component {
     //  console.log(gridItemArray);
   };
 
+  clearGrid = () => {
+    this.grid.removeAll();
+    this.initGrid(); // reinitialise grid
+  };
+
   componentDidMount() {
     this.initGrid();
     this.initCarGrid();
@@ -164,6 +171,7 @@ class Grid extends Component {
           </div>
         </Styles.MainGridStyles>
         <SaveButton addedWidgets={this.state.addedWidgets}></SaveButton>
+        <DeleteButton clearGrid={this.clearGrid}></DeleteButton>
       </div>
     );
   }

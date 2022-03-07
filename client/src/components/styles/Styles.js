@@ -53,8 +53,6 @@ const DateStyles = styled.div`
     #endDate {
       margin-left: 1em;
     }
-
-
   }
 
   .datePicker {
@@ -159,6 +157,8 @@ const SidebarStyles = styled.div`
   }
 `;
 
+const SaveButtonStyles = styled.div``;
+
 const Styles = {
   DivWrapper: DivWrapper,
   MainStyles: MainStyles,
@@ -166,6 +166,7 @@ const Styles = {
   DateStyles: DateStyles,
   MainGridStyles: MainGridStyles,
   SidebarStyles: SidebarStyles,
+  SaveButtonStyles: SaveButtonStyles,
 };
 
 export default Styles;

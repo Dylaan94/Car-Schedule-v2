@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Styles from "./styles/Styles";
 
 class SaveButton extends Component {
   constructor(props) {
@@ -26,11 +27,11 @@ class SaveButton extends Component {
 
   render() {
     return (
-      <div>
+      <Styles.SaveButtonStyles>
         <button className="saveButton" onClick={this.saveScheduleLocally}>
           Save Schedule
         </button>
-      </div>
+      </Styles.SaveButtonStyles>
     );
   }
 }
