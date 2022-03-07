@@ -1,5 +1,7 @@
 import { Component } from "react";
 
+import Styles from "./styles/Styles"
+
 class DeleteButton extends Component {
   constructor(props) {
     super(props);
@@ -8,9 +10,9 @@ class DeleteButton extends Component {
 
   render() {
     return (
-      <div>
+      <Styles.DeleteButtonStyles>
         <button onClick={this.props.clearGrid}> Delete Widgets</button>
-      </div>
+      </Styles.DeleteButtonStyles>
     );
   }
 }

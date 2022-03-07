@@ -55,7 +55,7 @@ const DateStyles = styled.div`
     }
   }
 
-  .datePicker {
+  input {
     background: #8d97b8;
     color: white;
     height: 2em;
@@ -66,6 +66,10 @@ const DateStyles = styled.div`
     border-radius: 5px;
     border: none;
     cursor: pointer;
+  }
+
+  input:hover {
+    background: #adb5bd;
   }
 `;
 
@@ -109,6 +113,7 @@ const MainGridStyles = styled.div`
       font-size: 1em;
       border: none;
       background: white;
+      cursor: pointer;
 
       .grid-stack-item-content {
         inset: 2px;
@@ -157,7 +162,51 @@ const SidebarStyles = styled.div`
   }
 `;
 
-const SaveButtonStyles = styled.div``;
+const ButtonStyles = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const SaveButtonStyles = styled.div`
+  padding: 1em;
+  button {
+    background: #43aa8b;
+    color: white;
+    height: 3em;
+    width: 10em;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    height: 3.2em;
+    width: 10.2em;
+  }
+`;
+
+const DeleteButtonStyles = styled.div`
+  padding: 1em;
+  button {
+    background: #f94144;
+    color: white;
+    height: 3em;
+    width: 10em;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    height: 3.2em;
+    width: 10.2em;
+  }
+`;
 
 const Styles = {
   DivWrapper: DivWrapper,
@@ -166,7 +215,9 @@ const Styles = {
   DateStyles: DateStyles,
   MainGridStyles: MainGridStyles,
   SidebarStyles: SidebarStyles,
+  ButtonStyles: ButtonStyles,
   SaveButtonStyles: SaveButtonStyles,
+  DeleteButtonStyles: DeleteButtonStyles,
 };
 
 export default Styles;

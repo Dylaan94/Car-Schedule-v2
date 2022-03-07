@@ -170,8 +170,10 @@ class Grid extends Component {
             ></section>
           </div>
         </Styles.MainGridStyles>
-        <SaveButton addedWidgets={this.state.addedWidgets}></SaveButton>
-        <DeleteButton clearGrid={this.clearGrid}></DeleteButton>
+        <Styles.ButtonStyles>
+          <SaveButton addedWidgets={this.state.addedWidgets}></SaveButton>
+          <DeleteButton clearGrid={this.clearGrid}></DeleteButton>
+        </Styles.ButtonStyles>
       </div>
     );
   }
