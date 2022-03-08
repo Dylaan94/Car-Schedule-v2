@@ -15,5 +15,6 @@ A web application to streamline car scheduling.
 - User authentication
 - Ability to edit names and cars
 - Car choices 
+- Full responsive styling
 
 ## Demo
