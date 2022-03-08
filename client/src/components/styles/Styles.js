@@ -5,12 +5,13 @@ const DivWrapper = styled.div`
   display: flex;
   flex-direction: row;
   font-family: "League Spartan", sans-serif;
+  width: 100%;
 `;
 
 const MainStyles = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
+  width: 100%;
 `;
 
 const HeaderStyles = styled.div`
@@ -18,7 +19,6 @@ const HeaderStyles = styled.div`
   flex-direction: column;
   justify-content: center;
   background: white;
-  width: 100%auto;
   min-height: 3em;
   height: 8vh;
   border-bottom: 2px solid rgb(241, 242, 249);
@@ -75,7 +75,6 @@ const DateStyles = styled.div`
 
 const MainGridStyles = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: row;
   justify-content: center;
 
@@ -94,7 +93,7 @@ const MainGridStyles = styled.div`
     padding: 1em;
 
     #gridWrapper {
-      width: 80vw;
+      width: 90%;
       min-width: 800px;
       margin-right: 0.5em;
       font-size: 1em;
@@ -155,10 +154,15 @@ const MainGridStyles = styled.div`
 
 const SidebarStyles = styled.div`
   .sidebar {
-    min-width: 5em;
-    max-width: 10em;
+    width: 15vw;
     height: 100vh;
     background: #03045e;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .sidebar {
+      width: 0%;
+    }
   }
 `;
 
