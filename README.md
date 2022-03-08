@@ -18,3 +18,4 @@ A web application to streamline car scheduling.
 - Full responsive styling
 
 ## Demo
+http://car-schedule-v2.herokuapp.com/
