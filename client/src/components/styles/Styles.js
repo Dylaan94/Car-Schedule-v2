@@ -144,12 +144,26 @@ const MainGridStyles = styled.div`
     [gs-id="constWidget"] {
       height: 100%;
       background: #f9fafd;
+
+      @media print {
+        .grid-stack-item-content {
+          inset: 2px;
+          width: 90%;
+          height: 90%;
+          border: 1px solid #343a40;
+          border-radius: 5px;
+        }
+      }
     }
 
     .grid-stack-item-content {
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    @media print {
+      box-shadow: none;
     }
   }
 `;
