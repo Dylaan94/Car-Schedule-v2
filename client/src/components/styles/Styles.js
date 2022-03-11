@@ -208,7 +208,7 @@ const SaveButtonStyles = styled.div`
   }
 `;
 
-const DeleteButtonStyles = styled.div`
+const ClearButtonStyles = styled.div`
   padding: 1em;
   button {
     background: #f94144;
@@ -228,6 +228,28 @@ const DeleteButtonStyles = styled.div`
   }
 `;
 
+const PrintButtonStyles = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  button {
+    background: #337ef2;
+    color: white;
+    height: 3em;
+    width: 12em;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    height: 3.2em;
+    width: 12.2em;
+  }
+`;
+
 const Styles = {
   DivWrapper: DivWrapper,
   MainStyles: MainStyles,
@@ -237,7 +259,8 @@ const Styles = {
   SidebarStyles: SidebarStyles,
   ButtonStyles: ButtonStyles,
   SaveButtonStyles: SaveButtonStyles,
-  DeleteButtonStyles: DeleteButtonStyles,
+  ClearButtonStyles: ClearButtonStyles,
+  PrintButtonStyles: PrintButtonStyles,
 };
 
 export default Styles;

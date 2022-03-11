@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Styles from "./styles/Styles"
 
 class PrintButton extends Component {
   constructor(props) {
@@ -13,9 +14,9 @@ class PrintButton extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick = {this.savePage}>Save PDF</button>
-      </div>
+      <Styles.PrintButtonStyles>
+        <button onClick={this.savePage}>Save PDF</button>
+      </Styles.PrintButtonStyles>
     );
   }
 }

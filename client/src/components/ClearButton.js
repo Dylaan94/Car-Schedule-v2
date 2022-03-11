@@ -10,9 +10,9 @@ class ClearButton extends Component {
 
   render() {
     return (
-      <Styles.DeleteButtonStyles className = "clearButton">
+      <Styles.ClearButtonStyles className = "clearButton">
         <button onClick={this.props.onClick}> {this.props.text}</button>
-      </Styles.DeleteButtonStyles>
+      </Styles.ClearButtonStyles>
     );
   }
 }
