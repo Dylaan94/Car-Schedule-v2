@@ -80,7 +80,8 @@ const MainGridStyles = styled.div`
 
   .gridContainer {
     display: flex;
-    width: 90%;
+    min-width: 900px;
+    width: 85%;
     height: 90%;
     flex-direction: row;
     justify-content: center;
@@ -100,6 +101,7 @@ const MainGridStyles = styled.div`
     }
 
     #carGridWrapper {
+      min-width: 100px;
       width: 10vw;
       height: 100%;
     }
@@ -161,7 +163,7 @@ const SidebarStyles = styled.div`
 
   @media only screen and (max-width: 1200px) {
     .sidebar {
-      width: 0%;
+      display: none;
     }
   }
 `;

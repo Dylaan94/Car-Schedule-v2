@@ -2,7 +2,7 @@ import { Component } from "react";
 
 import Styles from "./styles/Styles"
 
-class DeleteButton extends Component {
+class ClearButton extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -10,11 +10,11 @@ class DeleteButton extends Component {
 
   render() {
     return (
-      <Styles.DeleteButtonStyles>
-        <button onClick={this.props.clearGrid}> Delete Widgets</button>
+      <Styles.DeleteButtonStyles className = "clearButton">
+        <button onClick={this.props.onClick}> {this.props.text}</button>
       </Styles.DeleteButtonStyles>
     );
   }
 }
 
-export default DeleteButton;
+export default ClearButton;

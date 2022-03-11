@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import SaveButton from "./SaveButton";
-import DeleteButton from "./DeleteButton";
+import DeleteButton from "./ClearButton";
 
 //gridstack imports
 import { GridStack } from "gridstack";
@@ -158,7 +158,7 @@ class Grid extends Component {
   render() {
     return (
       <div>
-        <Styles.MainGridStyles>
+        <Styles.MainGridStyles className="mainGridDiv">
           <div className="gridContainer">
             <section
               id="gridWrapper"
@@ -171,8 +171,13 @@ class Grid extends Component {
           </div>
         </Styles.MainGridStyles>
         <Styles.ButtonStyles>
-          <SaveButton addedWidgets={this.state.addedWidgets}></SaveButton>
-          <DeleteButton clearGrid={this.clearGrid}></DeleteButton>
+          <SaveButton
+            addedWidgets={this.state.addedWidgets}
+          ></SaveButton>
+          <DeleteButton
+            onClick={this.clearGrid}
+            text="Clear Widgets"
+          ></DeleteButton>
         </Styles.ButtonStyles>
       </div>
     );
