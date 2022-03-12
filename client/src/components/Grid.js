@@ -141,8 +141,7 @@ class Grid extends Component {
         console.log(this.state);
       }
     );
-
-    //  console.log(gridItemArray);
+    
   };
 
   clearGrid = () => {

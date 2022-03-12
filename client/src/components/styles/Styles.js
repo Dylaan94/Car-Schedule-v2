@@ -236,7 +236,8 @@ const PrintButtonStyles = styled.div`
     background: #337ef2;
     color: white;
     height: 3em;
-    width: 12em;
+    min-width: 12em;
+    width: 90%;
     text-align: center;
     font-weight: 600;
     border-radius: 5px;
@@ -245,8 +246,7 @@ const PrintButtonStyles = styled.div`
   }
 
   button:hover {
-    height: 3.2em;
-    width: 12.2em;
+    background: #0077b6;
   }
 `;
 
