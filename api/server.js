@@ -10,7 +10,7 @@ app.use(express.json());
 const dbo = require("./database/conn")
 
 app.listen(port, () => {
-    // perform a database connection when a server starts
+    // perform a database connection when a server startsnpm
     dbo.connectToServer(function (err) {
         if (err) {
             console.error(err);
