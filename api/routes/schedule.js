@@ -8,7 +8,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 // get list of all schedules
 scheduleRoutes.route("/schedules").get((req, res) => {
-  let db_connect = dbo.getDb("database");
+  let db_connect = dbo.getDb("database"); //change
   db_connect
     .collection("schedules")
     .find({})
@@ -33,10 +33,7 @@ scheduleRoutes.route("/schedules/:id").get((req, res) => {
 
 scheduleRoutes.route("/schedules/add").post((req, response) => {
   let db_connect = dbo.getDb();
-    let myobj = {
-        test: req.body.test
-    // add parameters
-  };
+    let myobj = { schedule: req.body }
   db_connect.collection("schedules").insertOne(myobj, (err, res) => {
     if (err) throw err;
     response.json(res);

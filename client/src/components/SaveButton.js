@@ -30,6 +30,7 @@ class SaveButton extends Component {
 
     let widgets = this.getGridItems();
 
+    console.log(widgets)
     let test = {
       test: "hello"
     }
@@ -39,7 +40,7 @@ class SaveButton extends Component {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(test)
+      body: JSON.stringify(widgets)
     }).catch(error => {
       window.alert(error); // update this error handling
       return;
