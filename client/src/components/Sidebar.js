@@ -5,6 +5,7 @@ import ClearButton from "./ClearButton"
 import Grid from "./Grid"
 
 import PrintButton from "./PrintButton"
+import SchedulesList from "./SchedulesList"
 
 class Sidebar extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Sidebar extends Component {
       <Styles.SidebarStyles className = "sidebarDiv">
         <div className="sidebar">
           <PrintButton></PrintButton>
+          <SchedulesList></SchedulesList>
         </div>
       </Styles.SidebarStyles>
     );

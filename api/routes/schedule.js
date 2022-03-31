@@ -8,7 +8,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 // get list of all schedules
 scheduleRoutes.route("/schedules").get((req, res) => {
-  let db_connect = dbo.getDb("database"); //change
+  let db_connect = dbo.getDb("schedules"); //change
   db_connect
     .collection("schedules")
     .find({})
