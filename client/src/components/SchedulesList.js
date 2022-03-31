@@ -1,3 +1,7 @@
+import Styles from "./styles/Styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+
 const { Component } = require("react");
 
 class SchedulesList extends Component {
@@ -37,14 +41,18 @@ class SchedulesList extends Component {
 
   render() {
     const schedules = this.state.schedules;
+    const calendarIcon = <FontAwesomeIcon icon={faCalendarDays} />;
     return (
-      <div>
+      <Styles.SchedulesListStyles>
         <h1>Saved Schedules</h1>
         {console.log(schedules)}
         {schedules.map((item) => (
-          <li key={item._id}>{item.schedule.startDate}</li>
+          <li key={item._id}>
+            <a>{calendarIcon}</a>
+            {item.schedule.startDate}
+          </li>
         ))}
-      </div>
+      </Styles.SchedulesListStyles>
     );
   }
 }

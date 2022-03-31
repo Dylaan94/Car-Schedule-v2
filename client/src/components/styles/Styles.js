@@ -250,6 +250,35 @@ const PrintButtonStyles = styled.div`
   }
 `;
 
+const SchedulesListStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+  h1 {
+    color: white;
+    font-weight: 900;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+  }
+
+  li {
+    color: white;
+    padding: 0.1em;
+    list-style-type: none;
+
+    a {
+      padding-right: 0.6em;
+      color: #8d97b8;
+    }
+  }
+
+  li:hover {
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: 600;
+  }
+`;
+
 const Styles = {
   DivWrapper: DivWrapper,
   MainStyles: MainStyles,
@@ -261,6 +290,7 @@ const Styles = {
   SaveButtonStyles: SaveButtonStyles,
   ClearButtonStyles: ClearButtonStyles,
   PrintButtonStyles: PrintButtonStyles,
+  SchedulesListStyles: SchedulesListStyles,
 };
 
 export default Styles;
