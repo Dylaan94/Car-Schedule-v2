@@ -26,25 +26,30 @@ class SaveButton extends Component {
     window.localStorage.setItem("savedSchedule", widgets_serialised);
   };
 
-  saveToDB = async() => {
-
+  saveToDB = async () => {
     let widgets = this.getGridItems();
+    // could potentially use context api for this
+    let widgetsObject = {
+      widgets,
+      startDate: document.getElementById("startDate").innerText,
+      endDate: document.getElementById("endDate").innerText,
+    };
 
-    console.log(widgets)
+    console.log(widgetsObject);
     let test = {
-      test: "hello"
-    }
+      test: "hello",
+    };
 
     await fetch("http://localhost:5000/schedules/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(widgets)
-    }).catch(error => {
+      body: JSON.stringify(widgetsObject),
+    }).catch((error) => {
       window.alert(error); // update this error handling
       return;
-    })
+    });
   };
 
   render() {
