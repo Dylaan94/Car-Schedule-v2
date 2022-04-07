@@ -11,6 +11,7 @@ class SchedulesList extends Component {
       schedules: [],
     };
     this.loadList = this.loadList.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   loadList = async () => {
@@ -35,6 +36,10 @@ class SchedulesList extends Component {
     );
   };
 
+  handleClick = (id) => {
+    console.log("clicked " + id);
+  };
+
   componentDidMount() {
     this.loadList();
   }
@@ -45,9 +50,8 @@ class SchedulesList extends Component {
     return (
       <Styles.SchedulesListStyles>
         <h1>Saved Schedules</h1>
-        {console.log(schedules)}
         {schedules.map((item) => (
-          <li key={item._id}>
+          <li key={item._id} onClick={() => this.handleClick(item._id)}>
             <a>{calendarIcon}</a>
             {item.schedule.startDate}
           </li>
