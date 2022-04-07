@@ -15,41 +15,49 @@ class Main extends Component {
     super(props);
     this.state = {
       constWidgetMain: [
-        { x: 0, y: 0, h: 1, w: 1, name: "Day" },
-        { x: 1, y: 0, h: 1, w: 1, name: "Oscar" },
-        { x: 2, y: 0, h: 1, w: 1, name: "Erik" },
-        { x: 3, y: 0, h: 1, w: 1, name: "Alexa" },
-        { x: 4, y: 0, h: 1, w: 1, name: "Zach" },
-        { x: 5, y: 0, h: 1, w: 1, name: "Abbie" },
-        { x: 6, y: 0, h: 1, w: 1, name: "Adiola" },
-        { x: 7, y: 0, h: 1, w: 1, name: "Tom" },
-        { x: 0, y: 1, h: 1, w: 1, name: "Monday" },
-        { x: 0, y: 2, h: 1, w: 1, name: "Tuesday" },
-        { x: 0, y: 3, h: 1, w: 1, name: "Wednesday" },
-        { x: 0, y: 4, h: 1, w: 1, name: "Thursday" },
-        { x: 0, y: 5, h: 1, w: 1, name: "Friday" },
-        { x: 0, y: 6, h: 1, w: 1, name: "Last Friday" },
+        { x: 0, y: 0, h: 1, w: 1, content: "Day" },
+        { x: 1, y: 0, h: 1, w: 1, content: "Oscar" },
+        { x: 2, y: 0, h: 1, w: 1, content: "Erik" },
+        { x: 3, y: 0, h: 1, w: 1, content: "Alexa" },
+        { x: 4, y: 0, h: 1, w: 1, content: "Zach" },
+        { x: 5, y: 0, h: 1, w: 1, content: "Abbie" },
+        { x: 6, y: 0, h: 1, w: 1, content: "Adiola" },
+        { x: 7, y: 0, h: 1, w: 1, content: "Tom" },
+        { x: 0, y: 1, h: 1, w: 1, content: "Monday" },
+        { x: 0, y: 2, h: 1, w: 1, content: "Tuesday" },
+        { x: 0, y: 3, h: 1, w: 1, content: "Wednesday" },
+        { x: 0, y: 4, h: 1, w: 1, content: "Thursday" },
+        { x: 0, y: 5, h: 1, w: 1, content: "Friday" },
+        { x: 0, y: 6, h: 1, w: 1, content: "Last Friday" },
       ],
       constWidgetCar: [
-        { x: 0, y: 0, h: 1, w: 1, name: "BOE" },
-        { x: 1, y: 0, h: 1, w: 1, name: "City" },
-        { x: 2, y: 0, h: 1, w: 1, name: "Special" },
+        { x: 0, y: 0, h: 1, w: 1, content: "BOE" },
+        { x: 1, y: 0, h: 1, w: 1, content: "City" },
+        { x: 2, y: 0, h: 1, w: 1, content: "Special" },
       ],
       clickedSchedule: {},
     };
 
     this.getClickedSchedule = this.getClickedSchedule.bind(this);
+    this.removeGetClickedSchedule = this.removeGetClickedSchedule.bind(this);
   }
 
   getClickedSchedule = (data) => {
+    let newWidgets = data.schedule.widgets;
     this.setState(
       {
-        clickedSchedule: data,
+        clickedSchedule: newWidgets,
       },
       () => {
         console.log(this.state);
       }
     );
+  };
+
+  removeGetClickedSchedule = () => {
+    this.setState({
+      clickedSchedule: {}
+    });
   };
 
   render() {
@@ -81,6 +89,7 @@ class Main extends Component {
             }}
             constWidgetCar={this.state.constWidgetCar}
             clickedSchedule={this.state.clickedSchedule}
+            removeGetClickedSchedule={this.removeGetClickedSchedule}
           ></Grid>
         </Styles.MainStyles>
       </Styles.DivWrapper>

@@ -17,8 +17,8 @@ class Grid extends Component {
     super(props);
     this.state = {};
     this.initGrid = this.initGrid.bind(this);
-    this.setClickedSchedule = this.setClickedSchedule.bind(this);
     this.initCarGrid = this.initCarGrid.bind(this);
+    this.setClickedSchedule = this.setClickedSchedule.bind(this);
     this.handleGrid = this.handleGrid.bind(this);
     this.handleCarGrid = this.handleCarGrid.bind(this);
     this.updateGridState = this.updateGridState.bind(this);
@@ -39,7 +39,7 @@ class Grid extends Component {
     // sets placement based on props data
     for (let i = 0; i < constWidgets.length; i++) {
       node.id = "constWidget";
-      node.content = String(constWidgets[i].name);
+      node.content = String(constWidgets[i].content);
       node.x = constWidgets[i].x;
       node.y = constWidgets[i].y;
       node.w = constWidgets[i].w;
@@ -55,7 +55,26 @@ class Grid extends Component {
   };
 
   setClickedSchedule = () => {
-    console.log(this.props.clickedSchedule);
+    this.grid.removeAll();
+
+    const newWidgets = this.props.clickedSchedule;
+    const node = {};
+
+    for (let i = 0; i < newWidgets.length; i++) {
+      node.id = "constWidget";
+      node.content = String(newWidgets[i].content);
+      node.x = newWidgets[i].x;
+      node.y = newWidgets[i].y;
+      node.w = newWidgets[i].w;
+      node.h = newWidgets[i].h;
+      // options
+      node.noResize = true;
+      node.locked = true;
+      node.noMove = true;
+      this.grid.addWidget(node);
+    }
+
+    this.handleGrid();
   };
 
   initCarGrid = (newNode) => {
@@ -87,7 +106,7 @@ class Grid extends Component {
     } else {
       // sets placement based on data in state
       for (let i = 0; i < constWidgetCar.length; i++) {
-        node.id = node.content = String(this.props.constWidgetCar[i].name);
+        node.id = node.content = String(this.props.constWidgetCar[i].content);
         node.x = constWidgetCar[i].x;
         node.y = constWidgetCar[i].y;
         node.w = constWidgetCar[i].w;
@@ -133,14 +152,10 @@ class Grid extends Component {
       gridItemArray.push(gridItem);
     }
 
-    this.setState(
-      {
-        addedWidgets: gridItemArray,
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    // this callback loops through 16 times?
+    this.setState({
+      addedWidgets: gridItemArray,
+    });
   };
 
   clearGrid = () => {
@@ -149,6 +164,7 @@ class Grid extends Component {
       // remove clickedSchedule data
       clickedSchedule: {},
     });
+    this.props.removeGetClickedSchedule();
     this.initGrid(); // reinitialise grid
   };
 
@@ -157,8 +173,11 @@ class Grid extends Component {
     this.initCarGrid();
   }
 
-  componentDidUpdate() {
-    if (Object.keys(this.props.clickedSchedule).length !== 0) {
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.clickedSchedule !== this.props.clickedSchedule &&
+      Object.keys(this.props.clickedSchedule).length !== 0
+    ) {
       this.setClickedSchedule();
     }
   }
