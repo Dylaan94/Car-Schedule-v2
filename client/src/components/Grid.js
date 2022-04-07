@@ -55,8 +55,8 @@ class Grid extends Component {
   };
 
   setClickedSchedule = () => {
-    console.log(this.props.clickedSchedule)
-  }
+    console.log(this.props.clickedSchedule);
+  };
 
   initCarGrid = (newNode) => {
     // initialised grid based off data in state

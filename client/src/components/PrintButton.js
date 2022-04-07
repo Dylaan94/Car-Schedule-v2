@@ -1,24 +1,15 @@
-import React, { Component } from "react";
-import Styles from "./styles/Styles"
+import Styles from "./styles/Styles";
 
-class PrintButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.savePage = this.savePage.bind(this);
-  }
-
-  savePage = () => {
+const PrintButton = () => {
+  const savePage = () => {
     window.print();
   };
 
-  render() {
-    return (
-      <Styles.PrintButtonStyles>
-        <button onClick={this.savePage}>Save PDF</button>
-      </Styles.PrintButtonStyles>
-    );
-  }
-}
+  return (
+    <Styles.PrintButtonStyles>
+      <button onClick={savePage}>Save PDF</button>
+    </Styles.PrintButtonStyles>
+  );
+};
 
 export default PrintButton;
