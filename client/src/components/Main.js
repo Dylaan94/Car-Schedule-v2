@@ -35,14 +35,27 @@ class Main extends Component {
         { x: 1, y: 0, h: 1, w: 1, name: "City" },
         { x: 2, y: 0, h: 1, w: 1, name: "Special" },
       ],
+      clickedSchedule: {},
     };
+
+    this.getClickedSchedule = this.getClickedSchedule.bind(this);
   }
 
+  getClickedSchedule = (data) => {
+    this.setState(
+      {
+        clickedSchedule: data,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
 
   render() {
     return (
       <Styles.DivWrapper>
-        <Sidebar></Sidebar>
+        <Sidebar getClickedSchedule={this.getClickedSchedule}></Sidebar>
         <Styles.MainStyles>
           <Header></Header>
           <Date></Date>
@@ -67,6 +80,7 @@ class Main extends Component {
               class: "carGrid",
             }}
             constWidgetCar={this.state.constWidgetCar}
+            clickedSchedule={this.state.clickedSchedule}
           ></Grid>
         </Styles.MainStyles>
       </Styles.DivWrapper>

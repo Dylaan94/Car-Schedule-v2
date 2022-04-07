@@ -9,11 +9,13 @@ class SchedulesList extends Component {
     super(props);
     this.state = {
       schedules: [],
+      clickedSchedule: {},
     };
     this.loadList = this.loadList.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
+  // loads schedules from MongoDB and stores in state
   loadList = async () => {
     const response = await fetch(`http://localhost:5000/schedules/`);
 
@@ -24,7 +26,6 @@ class SchedulesList extends Component {
     }
 
     const schedules = await response.json();
-    console.log(schedules);
 
     this.setState(
       {
@@ -36,8 +37,17 @@ class SchedulesList extends Component {
     );
   };
 
+  // finds clicked date in state, stores in clickedItem and sends to parent
   handleClick = (id) => {
-    console.log("clicked " + id);
+    let clickedItem;
+    const schedules = this.state.schedules;
+    for (let i = 0; i < schedules.length; i++) {
+      if (schedules[i]._id === id) {
+        clickedItem = schedules[i];
+      }
+    }
+
+    this.props.getClickedSchedule(clickedItem);
   };
 
   componentDidMount() {

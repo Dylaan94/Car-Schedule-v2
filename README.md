@@ -16,6 +16,7 @@ A web application to streamline car scheduling.
 - Ability to edit names and cars
 - Car choices 
 - Full responsive styling
+- Rewrite with hooks and Context API
 
 ## Demo
 http://car-schedule-v2.herokuapp.com/
