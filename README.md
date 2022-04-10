@@ -23,4 +23,4 @@ A web application to streamline car scheduling.
 
 ## Demo
 
-http://car-schedule-v2.herokuapp.com/
+http://car-schedule-v2.herokuapp.com/ (Will throw error on save as a result of DB security settings)
