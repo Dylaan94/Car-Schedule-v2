@@ -208,6 +208,83 @@ const SaveButtonStyles = styled.div`
   }
 `;
 
+const ConfirmationPopupStyles = styled.div`
+  .popup-box {
+    position: fixed;
+    background: #00000050;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+
+  .box {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    height: auto;
+    max-height: 70vh;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
+
+    h1 {
+      font-size: 2em;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.4em;
+      text-align: center;
+      a {
+        font-weight: 900;
+      }
+    }
+
+    .confirmationButtons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 1em;
+    }
+
+    .confirmSaveButton {
+      background: #43aa8b;
+      color: white;
+      height: 3em;
+      width: 10em;
+      text-align: center;
+      font-weight: 600;
+      border-radius: 5px;
+      border: none;
+      margin-right: 1em;
+      cursor: pointer;
+    }
+
+    .rejectSaveButton {
+      background: #f94144;
+      color: white;
+      height: 3em;
+      width: 10em;
+      text-align: center;
+      font-weight: 600;
+      border-radius: 5px;
+      border: none;
+      margin-left: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      height: 3.2em;
+      width: 10.2em;
+    }
+  }
+`;
+
 const ClearButtonStyles = styled.div`
   padding: 1em;
   button {
@@ -288,6 +365,7 @@ const Styles = {
   SidebarStyles: SidebarStyles,
   ButtonStyles: ButtonStyles,
   SaveButtonStyles: SaveButtonStyles,
+  ConfirmationPopupStyles: ConfirmationPopupStyles,
   ClearButtonStyles: ClearButtonStyles,
   PrintButtonStyles: PrintButtonStyles,
   SchedulesListStyles: SchedulesListStyles,

@@ -4,9 +4,12 @@ import Styles from "./styles/Styles";
 class SaveButton extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      displayPopup: false,
+    };
     this.getGridItems = this.getGridItems.bind(this);
     this.handleGridItems = this.handleGridItems.bind(this);
+    this.togglePopup = this.togglePopup.bind(this);
     this.saveScheduleLocally = this.saveScheduleLocally.bind(this);
     this.saveToDB = this.saveToDB.bind(this);
   }
@@ -18,6 +21,19 @@ class SaveButton extends Component {
   handleGridItems = () => {
     const grid = this.getGridItems();
     console.log(grid);
+  };
+
+  togglePopup = () => {
+    console.log();
+    if (this.state.displayPopup === true) {
+      this.setState({
+        displayPopup: false,
+      });
+    } else {
+      this.setState({
+        displayPopup: true,
+      });
+    }
   };
 
   saveScheduleLocally = () => {
@@ -54,11 +70,45 @@ class SaveButton extends Component {
 
   render() {
     return (
-      <Styles.SaveButtonStyles>
-        <button className="saveButton" onClick={this.saveToDB}>
-          Save Schedule
-        </button>
-      </Styles.SaveButtonStyles>
+      <>
+        <Styles.SaveButtonStyles>
+          <button className="saveButton" onClick={this.togglePopup}>
+            Save Schedule
+          </button>
+        </Styles.SaveButtonStyles>
+        {this.state.displayPopup ? (
+          <Styles.ConfirmationPopupStyles>
+            <div className="popup-box">
+              <div className="box">
+                <h1> Are you sure you want to save schedule?</h1>
+                <h2>
+                  <a>Warning: </a> You will not be able to edit once it has been
+                  saved
+                </h2>
+                <div className="confirmationButtons">
+                  <button
+                    className="confirmSaveButton"
+                    onClick={() => {
+                      this.saveToDB();
+                      this.togglePopup();
+                    }}
+                  >
+                    Yes, fire away!
+                  </button>
+                  <button
+                    className="rejectSaveButton"
+                    onClick={this.togglePopup}
+                  >
+                    No, take me back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </Styles.ConfirmationPopupStyles>
+        ) : (
+          <></>
+        )}
+      </>
     );
   }
 }

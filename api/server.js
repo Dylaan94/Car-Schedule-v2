@@ -10,7 +10,7 @@ app.use(require("./routes/schedule"));
 const dbo = require("./database/conn")
 
 app.listen(port, () => {
-    // perform a database connection when a server startsnpm
+    // perform a database connection when a server starts npm
     dbo.connectToServer(function (err) {
         if (err) {
             console.error(err);
