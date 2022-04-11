@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Grid from "./Grid";
 import Date from "./Date";
-import SaveButton from "./SaveButton";
+import HowToUse from "./HowToUse"
 
 // Styles imports
 import Styles from "./styles/Styles";
@@ -91,6 +91,7 @@ class Main extends Component {
             clickedSchedule={this.state.clickedSchedule}
             removeGetClickedSchedule={this.removeGetClickedSchedule}
           ></Grid>
+          <HowToUse></HowToUse>
         </Styles.MainStyles>
       </Styles.DivWrapper>
     );

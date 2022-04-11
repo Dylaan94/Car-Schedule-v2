@@ -1,3 +1,4 @@
+import { faHospitalWide } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
 const DivWrapper = styled.div`
@@ -356,6 +357,42 @@ const SchedulesListStyles = styled.div`
   }
 `;
 
+const HowToUseStyles = styled.div`
+  display: flex;
+  justify-content: center;
+
+  .howToContainer {
+    display: flex;
+    min-width: 900px;
+    width: 85%;
+    height: auto;
+    flex-direction: column;
+    margin-top: 1em;
+    border: 1.5px solid rgb(241, 242, 249);
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px rgb(206, 212, 218);
+    background: white;
+    padding: 1em;
+
+    h1 {
+      font-size: 1.5em;
+      font-weight: 600;
+      padding-bottom: 0.2em;
+    }
+
+    h2 {
+      font-size: 1.3em;
+      font-weight: 600;
+      padding-top: 0.2em;
+      padding-bottom: 0.2em;
+    }
+  }
+
+  ul {
+    padding-left: 0.5em;
+  }
+`;
+
 const Styles = {
   DivWrapper: DivWrapper,
   MainStyles: MainStyles,
@@ -369,6 +406,7 @@ const Styles = {
   ClearButtonStyles: ClearButtonStyles,
   PrintButtonStyles: PrintButtonStyles,
   SchedulesListStyles: SchedulesListStyles,
+  HowToUseStyles: HowToUseStyles,
 };
 
 export default Styles;
