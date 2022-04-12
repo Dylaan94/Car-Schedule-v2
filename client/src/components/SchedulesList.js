@@ -13,6 +13,7 @@ class SchedulesList extends Component {
     };
     this.loadList = this.loadList.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   // loads schedules from MongoDB and stores in state
@@ -50,6 +51,15 @@ class SchedulesList extends Component {
     this.props.getClickedSchedule(clickedItem);
   };
 
+  // delete clicked schedule and reload list 
+  handleDelete = async (id) => {
+    await fetch(`http://localhost:5000/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      this.loadList();
+    });
+  };
+
   componentDidMount() {
     this.loadList();
   }
@@ -64,6 +74,7 @@ class SchedulesList extends Component {
           <li key={item._id} onClick={() => this.handleClick(item._id)}>
             <a>{calendarIcon}</a>
             {item.schedule.startDate}
+            {/* add a delete button here  */}
           </li>
         ))}
       </Styles.SchedulesListStyles>
