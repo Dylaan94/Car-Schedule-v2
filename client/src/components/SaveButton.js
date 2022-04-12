@@ -52,9 +52,9 @@ class SaveButton extends Component {
     };
 
     console.log(widgetsObject);
-    let test = {
-      test: "hello",
-    };
+
+    /* fetches all schedules, toggles popup, and then 
+    reloads window so that they can be rendered in */
 
     await fetch("http://localhost:5000/schedules/add", {
       method: "POST",
@@ -62,10 +62,15 @@ class SaveButton extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(widgetsObject),
-    }).catch((error) => {
-      window.alert(error); // update this error handling
-      return;
-    });
+    })
+      .then(() => {
+        this.togglePopup();
+        window.location.reload();
+      })
+      .catch((error) => {
+        window.alert(error); // update this error handling
+        return;
+      });
   };
 
   render() {
@@ -86,13 +91,7 @@ class SaveButton extends Component {
                   saved
                 </h2>
                 <div className="confirmationButtons">
-                  <button
-                    className="confirmSaveButton"
-                    onClick={() => {
-                      this.saveToDB();
-                      this.togglePopup();
-                    }}
-                  >
+                  <button className="confirmSaveButton" onClick={this.saveToDB}>
                     Yes, fire away!
                   </button>
                   <button

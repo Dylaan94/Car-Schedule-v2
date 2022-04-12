@@ -2,6 +2,10 @@ import Styles from "./styles/Styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 
+// component imports
+
+import DeleteButton from "./DeleteButton";
+
 const { Component } = require("react");
 
 class SchedulesList extends Component {
@@ -51,13 +55,18 @@ class SchedulesList extends Component {
     this.props.getClickedSchedule(clickedItem);
   };
 
-  // delete clicked schedule and reload list 
+  // delete clicked schedule and reload list
   handleDelete = async (id) => {
+    console.log(id);
     await fetch(`http://localhost:5000/${id}`, {
       method: "DELETE",
-    }).then(() => {
-      this.loadList();
-    });
+    })
+      .then(() => {
+        this.loadList();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   componentDidMount() {
@@ -71,11 +80,16 @@ class SchedulesList extends Component {
       <Styles.SchedulesListStyles>
         <h1>Saved Schedules</h1>
         {schedules.map((item) => (
-          <li key={item._id} onClick={() => this.handleClick(item._id)}>
-            <a>{calendarIcon}</a>
-            {item.schedule.startDate}
-            {/* add a delete button here  */}
-          </li>
+          <ul key={item._id}>
+            <li onClick={() => this.handleClick(item._id)}>
+              <a>{calendarIcon}</a>
+              {item.schedule.startDate}
+            </li>
+            <DeleteButton
+              handleDelete={this.handleDelete}
+              id={item._id}
+            ></DeleteButton>
+          </ul>
         ))}
       </Styles.SchedulesListStyles>
     );

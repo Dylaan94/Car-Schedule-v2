@@ -328,10 +328,36 @@ const PrintButtonStyles = styled.div`
   }
 `;
 
+const DeleteButtonStyles = styled.div`
+
+display: flex;
+justify-content: center;
+align-items: center;
+  button {
+    all: unset;
+    cursor: pointer;
+    color: #f94144;
+    font-size: 1em;
+    margin-left: 0.5em;
+    margin-top: 0.1em;
+  }
+
+  button:hover {
+    font-size: 1.1em;
+    color: #43aa8b;
+  }
+`;
+
 const SchedulesListStyles = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 1em;
+  padding-left: 1.3vw;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+
   h1 {
     color: white;
     font-weight: 900;
@@ -405,6 +431,7 @@ const Styles = {
   ConfirmationPopupStyles: ConfirmationPopupStyles,
   ClearButtonStyles: ClearButtonStyles,
   PrintButtonStyles: PrintButtonStyles,
+  DeleteButtonStyles: DeleteButtonStyles,
   SchedulesListStyles: SchedulesListStyles,
   HowToUseStyles: HowToUseStyles,
 };
