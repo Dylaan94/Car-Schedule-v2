@@ -25,6 +25,17 @@ const HowToUse = () => {
             'Save PDF' as normal
           </li>
         </ul>
+        <h2>Deleting Schedules</h2>
+        <ul>
+          <li>
+            Click the red delete arrow next to the schedule you want to delete
+            and confirm the prompt
+          </li>
+          <li>
+            Warning: Once deleted the schedule will not be retrievable! 
+          </li>
+        </ul>
+
         <h2>Edits</h2>
         <ul>
           <li>
