@@ -83,7 +83,7 @@ class SaveButton extends Component {
         </Styles.SaveButtonStyles>
         {this.state.displayPopup ? (
           <Styles.ConfirmationPopupStyles>
-            <div className="popup-box">
+            <div className="popupBox">
               <div className="box">
                 <h1> Are you sure you want to save schedule?</h1>
                 <h2>

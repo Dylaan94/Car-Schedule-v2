@@ -210,7 +210,7 @@ const SaveButtonStyles = styled.div`
 `;
 
 const ConfirmationPopupStyles = styled.div`
-  .popup-box {
+  .popupBox {
     position: fixed;
     background: #00000050;
     width: 100%;
@@ -286,6 +286,85 @@ const ConfirmationPopupStyles = styled.div`
   }
 `;
 
+const DeleteConfirmationPopupStyles = styled.div`
+  .deletePopupBox {
+    z-index: 1000;
+    position: absolute;
+    background: #00000050;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+
+  .deleteBox {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    height: auto;
+    max-height: 70vh;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
+
+    h1 {
+      color: black;
+      font-size: 2em;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.4em;
+      text-align: center;
+      a {
+        font-weight: 900;
+      }
+    }
+
+    .confirmDeleteButtons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 1em;
+    }
+
+    .confirmDeleteButton {
+      background: #43aa8b;
+      color: white;
+      height: 3em;
+      width: 10em;
+      text-align: center;
+      font-weight: 600;
+      border-radius: 5px;
+      border: none;
+      margin-right: 1em;
+      cursor: pointer;
+    }
+
+    .rejectDeleteButton {
+      background: #f94144;
+      color: white;
+      height: 3em;
+      width: 10em;
+      text-align: center;
+      font-weight: 600;
+      border-radius: 5px;
+      border: none;
+      margin-left: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      height: 3.2em;
+      width: 10.2em;
+    }
+  }
+`;
+
 const ClearButtonStyles = styled.div`
   padding: 1em;
   button {
@@ -329,10 +408,9 @@ const PrintButtonStyles = styled.div`
 `;
 
 const DeleteButtonStyles = styled.div`
-
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   button {
     all: unset;
     cursor: pointer;
@@ -429,6 +507,7 @@ const Styles = {
   ButtonStyles: ButtonStyles,
   SaveButtonStyles: SaveButtonStyles,
   ConfirmationPopupStyles: ConfirmationPopupStyles,
+  DeleteConfirmationPopupStyles: DeleteConfirmationPopupStyles,
   ClearButtonStyles: ClearButtonStyles,
   PrintButtonStyles: PrintButtonStyles,
   DeleteButtonStyles: DeleteButtonStyles,

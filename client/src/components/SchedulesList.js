@@ -14,6 +14,7 @@ class SchedulesList extends Component {
     this.state = {
       schedules: [],
       clickedSchedule: {},
+      displayDeletePopup: true,
     };
     this.loadList = this.loadList.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -73,25 +74,27 @@ class SchedulesList extends Component {
     this.loadList();
   }
 
+
+  // need to move the popup into th delete button component 
   render() {
     const schedules = this.state.schedules;
     const calendarIcon = <FontAwesomeIcon icon={faCalendarDays} />;
     return (
-      <Styles.SchedulesListStyles>
-        <h1>Saved Schedules</h1>
-        {schedules.map((item) => (
-          <ul key={item._id}>
-            <li onClick={() => this.handleClick(item._id)}>
-              <a>{calendarIcon}</a>
-              {item.schedule.startDate}
-            </li>
-            <DeleteButton
-              handleDelete={this.handleDelete}
-              id={item._id}
-            ></DeleteButton>
-          </ul>
-        ))}
-      </Styles.SchedulesListStyles>
+        <Styles.SchedulesListStyles>
+          <h1>Saved Schedules</h1>
+          {schedules.map((item) => (
+            <ul key={item._id}>
+              <li onClick={() => this.handleClick(item._id)}>
+                <a>{calendarIcon}</a>
+                {item.schedule.startDate}
+              </li>
+              <DeleteButton
+                handleDelete={this.handleDelete}
+                id={item._id}
+              ></DeleteButton>
+            </ul>
+          ))}
+        </Styles.SchedulesListStyles>
     );
   }
 }
